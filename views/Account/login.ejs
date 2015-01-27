@@ -1,0 +1,97 @@
+
+   <style>
+    body:{
+        color:#3f2b36
+    }
+    .login {
+        border-radius: 5px 5px 5px 5px;
+        -moz-border-radius: 5px 5px 5px 5px;
+        -webkit-border-radius: 5px 5px 5px 5px;
+        border: 1px solid #000000;
+    }
+</style>
+<div class="container">
+    <div class="page-header text-center">
+
+        <h1>會員登入
+            <small>請輸入帳號密碼</small>
+        </h1>
+    </div>
+    <div class="row">
+
+        <div class="col-lg-offset-2 col-md-offset-2 col-sm-offset-2 col-xs-offset-2 col-lg-8 col-md-8 col-sm-8 col-xs-8">
+            <form id="formlogin">
+
+
+               <ul class="list-group text-center">
+                  <li class="list-group-item">
+                      <label>帳號：</label>
+                     <input type="text" value="" id="txtAccount" name="account" />
+                  </li>
+                  <li class="list-group-item">
+                       <label>密碼：</label>
+                       <input type="password" value="" id="txtPassword" name="password" />
+                  </li>
+                  <li class="list-group-item">
+                     <button id="btnEnter" value="Login">Login</button>
+                      <button id="btnReset" value="Reset">Reset</button>
+                  </li>
+
+               </ul>
+
+            </form>
+        </div>
+    </div>
+</div>
+
+<script>
+    function btnEnter_init() {
+        $("#btnEnter").jqxButton();
+        $("#btnEnter").click(function () {
+            var strLoginUrl = "http://localhost:1337/account/login";
+            $.ajax({
+                type: 'post',
+                url: strLoginUrl,
+                data: $("#formlogin").serialize(),
+                success: function (objReturn) {
+
+                    if (objReturn.ReturnValue == 0) {
+                        alert('登入成功.');
+                        location.href = 'http://localhost:1337/' + location.hash;
+                    } else {
+                        alert('登入失敗');
+                    }
+
+                }
+            });
+            return false;
+        });
+    }
+
+    function btnReset_init() {
+        $("#btnReset").jqxButton();
+        $("#btnReset").click(function () {
+            $("#formlogin")[0].reset();
+            return false;
+        });
+    }
+
+    function txtAccount_init() {
+        $("#txtAccount").jqxInput();
+    }
+
+    function txtPassword_init() {
+        $("#txtPassword").jqxPasswordInput();
+    }
+
+    function objInit() {
+        btnEnter_init();
+        btnReset_init();
+        txtAccount_init();
+        txtPassword_init();
+    }
+    $(function () {
+
+        objInit();
+    });
+</script>

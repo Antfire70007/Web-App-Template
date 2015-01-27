@@ -1,0 +1,63 @@
+/* CSS Document */
+.msgBorder{
+	border-radius: 5px 5px 5px 5px;
+	-moz-border-radius: 5px 5px 5px 5px;
+	-webkit-border-radius: 5px 5px 5px 5px;
+	border: 1px solid gray;
+	margin-bottom:10px;
+	padding:10px 15px 10px 15px;
+	word-wrap: break-word;
+
+	min-height:150px;
+}
+.msgContent{
+overflow: hidden;
+max-height: 300px;
+}
+body{
+height:100%;
+
+}
+.body{
+	min-height:300px;
+	padding-bottom:-60px;
+}
+.photoBlock{
+	min-height:180px;
+	max-height:180px;
+	min-width:150px;
+	max-width:150px;
+	display:inline-block;
+	margin:10px;
+	border-radius: 5px 5px 5px 5px;
+-moz-border-radius: 5px 5px 5px 5px;
+-webkit-border-radius: 5px 5px 5px 5px;
+border: 1px solid #918791;
+background:#f0f0f0;
+
+}
+.photoItem{
+width: 80%;
+margin: 10px auto;
+height: 130px;
+}
+
+.photoDesc{
+margin: 0 10px;
+}
+.view-animation.ng-enter{
+opacity:0;
+}
+.view-animation.ng-enter.ng-enter-active{
+opacity:1;
+}
+
+.animate-enter {
+	-webkit-transition: 1s linear all; /* Chrome */
+	transition: 1s linear all;
+	opacity: 0;
+}
+
+.animate-enter.animate-enter-active {
+	opacity: 1;
+}
